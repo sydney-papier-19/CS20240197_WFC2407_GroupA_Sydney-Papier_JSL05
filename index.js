@@ -1,19 +1,19 @@
 // Array of song objects. Add at least 5 songs with title, artist, and genre properties.
 const songs = [
-    //Star-Lord
+    //Star-Lord: Rock
     { title: "Moonage Daydream", artist: "David Bowie", genre: "Rock" },
     { title: "Spirit in the Sky", artist: "Norman Greenbaum", genre: "Rock" },
     { title: "Cherry Bomb", artist: "The Runaways", genre: "Rock" },
     { title: "Come and Get Your Love", artist: "Redbone", genre: "Rock" },
     { title: "Fooled Around and Fell in Love", artist: "Elvin Bishop", genre: "Rock" },
-    //Groot Pop
+    //Groot:Pop
     { title: "Hooked on a Feeling", artist: "Blue Swede", genre: "Pop" },
     { title: "I Want You Back", artist: "The Jackson 5", genre: "Pop" },
     { title: "Escape (The Piña Colada Song)", artist: "Rupert Holmes", genre: "Pop" },
     { title: "I'm Not in Love", artist: "10cc", genre: "Pop" },
  
     // Feel free to add even more songs
-    //R&B for Drax playlist
+    //Drax: R&B
     { title: "O-O-H Child", artist: "The Five Stairsteps", genre: "R&B" },
     { title: "Ain't No Mountain High Enough", artist: "Marvin Gaye & Tammi Terrell", genre: "R&B" },
     { title:"Redbone", artist: "Childish Gambino", genre: "R&B"}, //added song
@@ -24,7 +24,7 @@ const songs = [
     { title:"Come As You Are", artist: "Nirvana", genre: "Grunge"},//added song
     { title:"Hunger Strike", artist: "Temple of the Dog", genre: "Grunge"}, //added song
     { title:"Alive", artist: "Pearl Jam", genre: "Grunge"}, //added song
-    //Rocket
+    //Rocket: Classic Rock
     { title:"Bohemian Rhapsody", artist: "Queen", genre: "Classic Rock"},//added song
     { title:"Sweet Child O' Mine", artist: "Guns N' Roses", genre: "Classic Rock"},//added song
     { title:"Hotel California", artist: "Eagles", genre: "Classic Rock"},//added song
@@ -36,8 +36,11 @@ const songs = [
 // Object containing each Guardian's preferred genre
 const guardians = {
     "Star-Lord": "Rock",
-    "Gamora": "Pop",
-    // Add preferences for Drax, Rocket, and Groot
+    "Gamora": "Grunge",
+    // Added preferences for Drax, Rocket, and Groot
+    "Drax": "R&B",
+    "Rocket": "Classic Rock",
+    "Groot": "Pop",
 };
 
 // Function to generate playlist based on preferred genre
