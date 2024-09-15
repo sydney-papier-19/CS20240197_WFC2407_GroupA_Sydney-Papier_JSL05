@@ -40,20 +40,56 @@ const guardians = {
     "Rocket": "Classic Rock",
 };
 
-// Function to generate playlist based on preferred genre
+// Function to generate playlist based on each Guardian's preferred genre
 function generatePlaylist(guardians, songs) {
-    // Use the map() function to create playlists for each Guardian
-    
+    // Use Object.entries() to convert guardians object into an array of [guardian, genre] pairs
     return Object.entries(guardians).map(([guardian, genre]) => {
-        // Filter songs by the preferred genre of the guardian
+        // For each guardian, filter the songs that match their preferred genre
         const playlist = songs.filter(song => song.genre === genre);
-        return { [guardian]: playlist };
+
+        // Return an object with the guardian's name and their playlist
+        return {
+            guardian,    // Shorthand for guardian: guardian
+            playlist     // Shorthand for playlist: playlist
+        };
     });
-  
 }
 
-// Call generatePlaylist and display the playlists for each Guardian
-const playlists = generatePlaylist(guardians, songs);
-console.log(playlists);
+
+// Function to display playlists on the webpage
+function displayPlaylists() {
+    const playlists = generatePlaylist(guardians, songs); // Generate the playlists
+    const playlistsContainer = document.getElementById('playlists'); // Get the div to insert playlists
+
+    // Loop through each Guardian's playlist and create HTML content
+    playlists.forEach(({ guardian, playlist }) => {
+        // Create a new section for each Guardian's playlist
+        const guardianSection = document.createElement('div');
+        guardianSection.classList.add('guardian-section'); // Add a CSS class for styling if needed
+        
+        // Create a heading for the Guardian's name
+        const guardianHeading = document.createElement('h2');
+        guardianHeading.textContent = `${guardian}'s Playlist 🎵`;
+        guardianSection.appendChild(guardianHeading);
+        
+        // Create a list to hold the song titles
+        const songList = document.createElement('ul');
+        playlist.forEach(song => {
+            const songItem = document.createElement('li');
+            songItem.textContent = `${song.title} - ${song.artist}`;
+            songList.appendChild(songItem);
+        });
+        
+        // Append the song list to the Guardian's section
+        guardianSection.appendChild(songList);
+        
+        // Append the Guardian's section to the playlists container
+        playlistsContainer.appendChild(guardianSection);
+    });
+}
+
+// Call the function to display the playlists when the page loads
+document.addEventListener('DOMContentLoaded', displayPlaylists);
+
 
 
