@@ -15,7 +15,7 @@ const songs = [
     { title: "O-O-H Child", artist: "The Five Stairsteps", genre: "R&B" },
     { title: "Ain't No Mountain High Enough", artist: "Marvin Gaye & Tammi Terrell", genre: "R&B" },
     { title:"Redbone", artist: "Childish Gambino", genre: "R&B"}, //added song
-    { title:"Best Part", artist: "Daniel Caesar", genre: "R&B"},//added song
+    { title:"Best Part", artist: "Daniel Caesar ft. HER", genre: "R&B"},//added song
     { title:"Really Love", artist: "D'angelo", genre: "R&B"},//added song
     //Gamora: Grunge
     { title:"Black Hole Sun", artist: "Soundgarden", genre: "Grunge"}, //added song
@@ -76,14 +76,30 @@ function displayPlaylists() {
         guardianHeading.textContent = `${guardian}'s Playlist 🎵`;
         guardianSection.appendChild(guardianHeading);
         
-        // Create a list to hold the song titles
-        const songList = document.createElement('ul');
-        playlist.forEach(song => {
-        //creates a list item showing song title and artist and appends to list
-            const songItem = document.createElement('li');
-            songItem.textContent = `${song.title} - ${song.artist}`;
-            songList.appendChild(songItem);
-        });
+      // Create a list to hold the song titles
+const songList = document.createElement('ul');
+songList.classList.add('song-list'); // Add a CSS class for styling if needed
+
+playlist.forEach(song => {
+    // Create a list item to hold the song title and artist
+    const songItem = document.createElement('li');
+    
+    // Create a span element specifically for the song title
+    const songTitle = document.createElement('span');
+    songTitle.textContent = song.title;
+    songTitle.classList.add('song-title'); // Add a CSS class for the title
+    
+    // Create a span element specifically for the artist name
+    const songArtist = document.createElement('span');
+    songArtist.textContent = ` - ${song.artist}`;
+    
+    // Append the title and artist to the list item
+    songItem.appendChild(songTitle);
+    songItem.appendChild(songArtist);
+    
+    // Append the list item to the song list
+    songList.appendChild(songItem);
+});
         
         // Append the song list to the Guardian's section
         guardianSection.appendChild(songList);

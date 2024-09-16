@@ -14,7 +14,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for headings */
 }
 
-.playlist {
+.playlists {
     margin: 20px;
     padding: 20px; /* Increased padding */
     background-color: #6A5ACD; /* Purple background for playlists */
@@ -37,3 +37,21 @@ h1 {
     text-decoration: none; /* Remove underline on hover */
     color: #00FF00; /* Green color on hover */
 }
+
+.guardian-section {
+    margin: 20px;
+    padding: 20px; /* Increased padding */
+    padding-right: 20px;
+    padding-left: 5px;
+    background-color: #6A5ACD; /* Purple background for playlists */
+    display: inline-block;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for playlists */
+
+    
+}
+
+.song-list {
+    list-style-type: none; /*gets rid of bullet points from unordered list*/
+}
+
