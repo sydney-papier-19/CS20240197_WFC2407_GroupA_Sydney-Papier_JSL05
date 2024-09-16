@@ -33,6 +33,7 @@ const songs = [
 
 // Object containing each Guardian's preferred genre
 const guardians = {
+    //Key is guardians name and the value is the genre
     "Star-Lord": "Rock",
     "Groot": "Pop",
     "Drax": "R&B",
@@ -42,7 +43,10 @@ const guardians = {
 
 // Function to generate playlist based on each Guardian's preferred genre
 function generatePlaylist(guardians, songs) {
-    // Use Object.entries() to convert guardians object into an array of [guardian, genre] pairs
+
+    /* Use Object.entries() to convert guardians
+     object into an array of [guardian, genre] pairs*/
+    //map() loops through each guardian-genre pair and creates a playlist
     return Object.entries(guardians).map(([guardian, genre]) => {
         // For each guardian, filter the songs that match their preferred genre
         const playlist = songs.filter(song => song.genre === genre);
@@ -58,10 +62,10 @@ function generatePlaylist(guardians, songs) {
 
 // Function to display playlists on the webpage
 function displayPlaylists() {
-    const playlists = generatePlaylist(guardians, songs); // Generate the playlists
+    const playlists = generatePlaylist(guardians, songs); // Get the playlists for each guardian
     const playlistsContainer = document.getElementById('playlists'); // Get the div to insert playlists
 
-    // Loop through each Guardian's playlist and create HTML content
+    // Loop through each Guardian's playlist using forEach() and create HTML content
     playlists.forEach(({ guardian, playlist }) => {
         // Create a new section for each Guardian's playlist
         const guardianSection = document.createElement('div');
@@ -75,6 +79,7 @@ function displayPlaylists() {
         // Create a list to hold the song titles
         const songList = document.createElement('ul');
         playlist.forEach(song => {
+        //creates a list item showing song title and artist and appends to list
             const songItem = document.createElement('li');
             songItem.textContent = `${song.title} - ${song.artist}`;
             songList.appendChild(songItem);
@@ -83,7 +88,7 @@ function displayPlaylists() {
         // Append the song list to the Guardian's section
         guardianSection.appendChild(songList);
         
-        // Append the Guardian's section to the playlists container
+        // Append the Guardian's section to the playlists container in the html
         playlistsContainer.appendChild(guardianSection);
     });
 }
